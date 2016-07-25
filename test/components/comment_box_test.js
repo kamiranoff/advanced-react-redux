@@ -24,15 +24,16 @@ describe('CommentBox', () => {
   describe('entering some text',() => {
 
     beforeEach(() => {
-      component.find('textarea').simulate('change','new commnent');
+      component.find('textarea').simulate('change','new comment');
     });
 
     it('shows text in textarea',() => {
-
+      expect(component.find('textarea')).to.have.value('new comment');
     });
 
     it('when submitted, clears the input',() => {
-
+      component.simulate('submit');
+      expect(component.find('textarea')).to.have.value('');
     });
   });
 
